@@ -1,11 +1,18 @@
 import time
 import pygame
+import platform
 
 from static import *
 
 WIDTH = 800
 HEIGHT = 480
 FRAMERATE = 32
+
+OS = platform.platform()
+if "linux" in OS.lower():
+    ROOT = "/home/bluespaniel/Documents/PositronOS"
+else:
+    ROOT = ""
 
 pygame.init()
 
@@ -72,7 +79,7 @@ while running:
     #         appA = 
 
     if positron.app == "bootup":
-        LOGO = pygame.image.load("system/logo.png")
+        LOGO = pygame.image.load(f"{ROOT}/system/logo.png")
         LOGO = pygame.transform.scale(LOGO, (256, 256))
         screen.blit(
             LOGO, (
